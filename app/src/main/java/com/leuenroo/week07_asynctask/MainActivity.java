@@ -2,6 +2,7 @@ package com.leuenroo.week07_asynctask;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ProgressBar;
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
         protected void onPostExecute(Integer numDownloads) {
             mSummaryTextView.setText("Downloaded " + numDownloads + " URLs");
+            if(numDownloads>2){
+                startActivity(new Intent(MainActivity.this, MainActivity2.class));
+            }
         }
     }
 }
